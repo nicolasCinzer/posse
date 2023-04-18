@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --darker-primary: #0a0708;
+  --darker-gray-primary: #444444;
+  --gray-primary: #747474;
+  --lighter-gray-primary: #b1b1b1;
+  --blue-primary: #0a41c9;
+}
+  
+@media (prefers-color-scheme: dark) {
+  :root {
+    --darker-primary: #0a0708;
+    --darker-gray-primary: #444444;
+    --gray-primary: #0a0708;
+    --lighter-gray-primary: #444444;
+    --blue-primary: #0a41c9;
+  }
+}
+
+body {
+  color: var(--darker-primary);
+  background: linear-gradient(0deg, var(--gray-primary) 25%, var(--lighter-gray-primary) 100%);
+}
