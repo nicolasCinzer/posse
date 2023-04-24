@@ -1,20 +1,13 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import logo from '../assets/svg/logo-no-background.svg';
-
-const inter = Inter({ subsets: ['latin'] });
+import { WidgetPRs } from '../components/PRs/PRs';
+import { WidgetMesocycles } from '../components/Mesocycles/Mesocyles';
+import { WidgetStats } from '../components/Stats/Stats';
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center p-4'>
-      <Image
-        src={logo}
-        alt='Vercel Logo'
-        className='dark:invert'
-        width={100}
-        height={24}
-        priority
-      />
+    <main className={`grid grid-areas-home grid-cols-home pt-4 h-full`}>
+      <WidgetPRs />
+      <WidgetMesocycles />
+      <WidgetStats />
     </main>
   );
 }
