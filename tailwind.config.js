@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateAreas: {
-        prs: ['excersice excersice', 'times lift'],
+        prs: ['exercise exercise', 'times lift'],
         home: ['prs mc', 'prs stats'],
       },
       gridTemplateColumns: {

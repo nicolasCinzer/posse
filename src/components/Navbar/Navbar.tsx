@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { NavbarItem } from './ui/NavbarItem';
 import logo from '../../assets/svg/logo-no-background.svg';
 
-const leftItems: string[] = ['PRs', 'Excersices'];
+const leftItems: string[] = ['PRs', 'Exercises'];
 const rightItems: string[] = ['Rutines', 'Stats'];
 
 const Navbar = (): JSX.Element => {

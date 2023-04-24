@@ -1,5 +1,5 @@
 interface PR {
-  excersice: string;
+  exercise: string;
   reps: number;
   series: number;
   weight: number;
