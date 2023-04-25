@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { NavbarItem } from './ui/NavbarItem';
+import { NavbarItem } from '../ui/home/NavbarItem';
 import logo from '../../assets/svg/logo-no-background.svg';
 
 const leftItems: string[] = ['PRs', 'Exercises'];

@@ -1,10 +1,8 @@
 import Link from 'next/link';
 
-interface Label {
-  label: string;
-}
+import { Navbar } from '../../interfaces';
 
-const NavbarItem = ({ label }: Label) => {
+const NavbarItem = ({ label }: Navbar) => {
   return (
     <Link
       href={label}
