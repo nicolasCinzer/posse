@@ -4,13 +4,13 @@
 
 :root {
   --dom-color: #ffffff;
-  --acc-color: #160000;
+  --acc-color: #110000;
   --comp-color: #a10f0f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --dom-color: #160000;
+    --dom-color: #110000;
     --acc-color: #ffffff;
     --comp-color: #a10f0f;
   }
