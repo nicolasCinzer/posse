@@ -11,6 +11,7 @@ type Movement = {
 type Program = {
   id: number
   name: string
+  duration: number
 }
 
 type Block = {
@@ -60,4 +61,11 @@ type RutineDayExercise = {
   reps: number
   unit: 'LBS' | 'KGs'
   comments: string
+}
+
+type Button = {
+  children: string
+  onClick?: () => {}
+  style?: string
+  reference?: string
 }
