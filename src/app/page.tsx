@@ -1,4 +1,4 @@
-import Programs from '../components/home/Programs'
+import Programs from './components/Programs'
 
 export default function Home() {
   return (

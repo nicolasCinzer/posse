@@ -1,10 +1,10 @@
 import './globals.css'
 import { Figtree } from 'next/font/google'
 
-import Navbar from '../components/Navbar'
+import Navbar from '@/components/Navbar'
 
 export const metadata = {
-  title: 'Posse',
+  title: 'Home',
   description: 'Powerlifting Program'
 }
 
