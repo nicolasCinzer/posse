@@ -1,5 +1,5 @@
 export default async function getMovements() {
-  const response = await fetch(process.env.MOVEMENTS_URL as string)
+  const response = await fetch('http://localhost:3000/api/movements')
 
   return response.json()
 }
