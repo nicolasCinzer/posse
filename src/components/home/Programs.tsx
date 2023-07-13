@@ -8,7 +8,7 @@ export default function Programs({}: Props) {
     <section className='grid grid-cols-2'>
       <h2 className='text-2xl px-2'>Programs</h2>
       <div className='flex justify-end items-center'>
-        <Button>Agregar Programa</Button>
+        <Button reference='/add-program'>Agregar Programa</Button>
       </div>
       <ProgramsList
         programs={[

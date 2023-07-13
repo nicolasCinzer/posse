@@ -6,7 +6,7 @@ type Props = {
 
 export default function ProgramsList({ programs }: Props) {
   const list = (
-    <ul className='flex gap-4 items-center h-full'>
+    <ul className='flex mb-2 gap-4 items-center h-full whitespace-nowrap overflow-x-scroll'>
       {programs.map(program => (
         <li
           key={program.id}
