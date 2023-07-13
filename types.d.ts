@@ -3,6 +3,10 @@ type BlockType = {
   name: string
 }
 
+type BlockTypeState = BlockType & {
+  currentDuration: number
+}
+
 type Movement = {
   id: number
   name: string
@@ -25,7 +29,7 @@ type Exercise = {
   id: number
   movementID?: number
   name: string
-  type: 'Basic' | 'Variant' | 'Accessory' | null
+  type: 'Basic' | 'Variant' | 'Accessory' | 'Other' | null
 }
 
 type Mesocycle = {
@@ -68,4 +72,11 @@ type Button = {
   onClick?: () => {}
   style?: string
   reference?: string
+}
+
+type Select = {
+  options: number[] | string[]
+  onChange?: (e: any) => void
+  style?: string
+  id?: string
 }
