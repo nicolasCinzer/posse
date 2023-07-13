@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 import Program from './Program'
-import Blocks from './Blocks'
+import BlocksLength from './BlocksLenght'
 
 type Props = {
   movements: Movement[]
@@ -16,7 +16,7 @@ export default function AddProgramForm({ movements, blockTypes }: Props) {
     <>
       <Program setProgram={setProgram} />
       {program.duration ? (
-        <Blocks
+        <BlocksLength
           maxDuration={program.duration}
           movements={movements}
           blockTypes={blockTypes}

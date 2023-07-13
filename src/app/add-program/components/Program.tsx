@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import Select from '@/src/components/ui/Select'
 
 export default function Program({ setProgram }: { setProgram: Dispatch<SetStateAction<Partial<Program>>> }) {
   return (
@@ -12,20 +13,11 @@ export default function Program({ setProgram }: { setProgram: Dispatch<SetStateA
           >
             Weeks
           </label>
-          <select
-            id='duration-select'
-            className='bg-dom-color p-2 gap-4 outline-none'
+          <Select
+            options={Array.from(Array(49).keys())}
             onChange={e => setProgram(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
-          >
-            {Array.from(Array(48).keys()).map(duration => (
-              <option
-                key={duration}
-                value={duration}
-              >
-                {duration}
-              </option>
-            ))}
-          </select>
+            id='duration-select'
+          />
         </div>
       </div>
       <input
