@@ -1,16 +1,20 @@
-'use client'
-import { useState } from 'react'
+import AddProgramForm from './components/AddProgramForm'
+import getMovements from '@/lib/getMovements'
+import getBlockTypes from '@/lib/getBlockTypes'
 
-import Program from './components/Program'
+export default async function AddProgram() {
+  // const movementsData: Promise<Movement> = await getMovements()
+  // const movements = await movementsData
 
-export default function AddProgram() {
-  const [program, setProgram] = useState<Partial<Program>>({ name: '', duration: 0 })
+  // const blockTypesData: Promise<BlockType> = await getBlockTypes()
+  // const blockTypes = await blockTypesData
 
-  console.log(program)
   return (
     <main className='p-4'>
-      <Program setProgram={setProgram} />
-      {program.duration ? <></> : <></>}
+      <AddProgramForm
+        movements={[{ id: 1, name: 'Bench Press' }]}
+        blockTypes={[{ id: 1, name: 'Hypertrophy' }]}
+      />
     </main>
   )
 }
