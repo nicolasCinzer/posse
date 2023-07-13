@@ -25,3 +25,23 @@ body {
   color: var(--acc-color);
   background: var(--dom-color);
 }
+
+::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dom-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--comp-color);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--acc-color);
+}
