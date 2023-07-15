@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default async function Exercises({ params: { name } }: Props) {
-  const exercises: Exercise[] = await getExercises({ name }) 
+  const exercises: Exercise[] = await getExercises({ name })
   const movements: Movement[] = await getMovements()
 
   return (
@@ -20,4 +20,10 @@ export default async function Exercises({ params: { name } }: Props) {
       />
     </section>
   )
+}
+
+export async function generateStaticParams() {
+  const exercises: Exercise[] = await getExercises({})
+
+  return exercises.map(exercise => ({ name: exercise.name }))
 }
