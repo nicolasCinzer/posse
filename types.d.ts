@@ -20,14 +20,14 @@ type Program = {
 
 type Block = {
   id: number
-  typeID: number
-  movementID: number
+  typeId: number
+  movementId: number
   duration: number
 }
 
 type Exercise = {
   id: number
-  movementID?: number
+  movementId?: number
   name: string
   type: 'Basic' | 'Variant' | 'Accessory' | 'Other' | null
 }
@@ -40,7 +40,7 @@ type Mesocycle = {
 
 type PRs = {
   id: number
-  exerciseID: number
+  exerciseId: number
   series: number
   weight: number
   reps: number
@@ -50,16 +50,16 @@ type PRs = {
 
 type RutineDay = {
   id: number
-  blockID: number
-  mesocycleID: number
+  blockId: number
+  mesocycleId: number
   week: number
   day: number
 }
 
 type RutineDayExercise = {
   id: number
-  rutineDayID: number
-  exerciseID: number
+  rutineDayId: number
+  exerciseId: number
   series: number
   weight: number
   reps: number
@@ -69,7 +69,7 @@ type RutineDayExercise = {
 
 type Button = {
   children: string
-  onClick?: () => {}
+  onClick?: (e: any) => void
   style?: string
   reference?: string
 }
