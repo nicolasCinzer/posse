@@ -14,7 +14,7 @@ export default function ExercisesList({ exercises, movements }: Props) {
           className='border px-4 py-2 grid grid-cols-3 gap-2 items-center'
         >
           <Link
-            href={`/exercise/${exercise.id}`}
+            href={`/exercises/stats/${exercise.id}`}
             className='group text-acc-color transition duration-300 w-max'
           >
             {exercise.name}

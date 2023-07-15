@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 
   const params = new URLSearchParams(paramsModified)
 
-  const URLFetch = `${EXERCISES_URL}?${params}`
+  const URLFetch = `${EXERCISES_URL}?${params.toString().replaceAll(/%2520/g, '%20')}`
   console.log(URLFetch)
 
   const res = await fetch(URLFetch)
