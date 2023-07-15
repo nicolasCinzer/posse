@@ -10,10 +10,19 @@
     { "id": 3, "name": "Peaking" },
     { "id": 4, "name": "Tapering" }
   ],
+  "exercises": [
+    { "id": 1, "movementId": 1, "name": "Bench Press", "type": "Basic" },
+    { "id": 2, "movementId": 2, "name": "Squat", "type": "Basic" },
+    { "id": 3, "movementId": 3, "name": "Deadlift", "type": "Basic" },
+    { "id": 4, "movementId": 1, "name": "Pause Bench Press", "type": "Variant" },
+    { "id": 5, "movementId": 2, "name": "Pause Squat", "type": "Variant" },
+    { "id": 6, "movementId": 3, "name": "Pause Deadlift", "type": "Variant" }
+  ],
   "programs": [
     { "id": 1, "name": "Argentina Power", "duration": 19 },
     { "id": 2, "name": "Cali Power", "duration": 20 },
     { "id": 3, "name": "Cali Hypertrophy", "duration": 10 },
     { "id": 4, "name": "Cali Strongman", "duration": 15 }
-  ]
+  ],
+  "blocks": []
 }
