@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default async function Exercises({ params: { name } }: Props) {
-  const exercises: Exercise[] = await getExercises({ name })
+  const exercises: Exercise[] = await getExercises({ name: name.charAt(0).toUpperCase() + name.slice(1) })
   const movements: Movement[] = await getMovements()
 
   return (
