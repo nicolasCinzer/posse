@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import MovementItem from './MovementItem'
-import { FaTrash } from 'react-icons/fa'
-import Button from '@/src/components/ui/Button'
+import { MdCheck, MdClose } from 'react-icons/md'
 
 type Props = {
   maxDuration: number
@@ -17,20 +16,26 @@ export default function Movements({ maxDuration, movements, blockTypes }: Props)
       <h2 className='text-xl'>Set Blocks Lenght</h2>
       <div className='flex justify-between'>
         <ul className='flex gap-4'>
-          {currentMovements.map(movement => (
+          {movements.map(movement => (
             <li
               key={movement.id}
-              className='flex gap-2 items-center'
+              className={`flex gap-2 items-center px-2 rounded-xl bg-comp-color text-acc-color`}
             >
               <div>{movement.name}</div>
-              <FaTrash
-                className='text-sm'
-                onClick={() => setCurrentMovements(currentMovements.filter(item => item.id !== movement.id))}
-              />
+              {currentMovements.map(item => item.id).includes(movement.id) ? (
+                <MdCheck
+                  className='text-lg cursor-pointer'
+                  onClick={() => setCurrentMovements(currentMovements.filter(item => item.id !== movement.id))}
+                />
+              ) : (
+                <MdClose
+                  className='text-lg cursor-pointer'
+                  onClick={() => setCurrentMovements([...currentMovements, movement])}
+                />
+              )}
             </li>
           ))}
         </ul>
-        <Button>Add Movement</Button>
       </div>
       {currentMovements.map(movement => (
         <MovementItem
