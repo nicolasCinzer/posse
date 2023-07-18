@@ -1,8 +1,6 @@
 'use client'
 import { useState } from 'react'
-
-import Program from './Program'
-import BlocksLength from './BlocksLenght'
+import { Program, BlocksLength } from './'
 
 type Props = {
   movements: Movement[]

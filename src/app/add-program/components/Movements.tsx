@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react'
-import MovementItem from './MovementItem'
+import { MovementItem } from './'
 import { MdCheck, MdClose } from 'react-icons/md'
 
 type Props = {

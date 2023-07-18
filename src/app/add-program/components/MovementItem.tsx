@@ -1,13 +1,13 @@
+'use client'
+
 import { useState } from 'react'
-import BlockTypeLength from './BlockTypeLength'
+import { BlockTypeLength } from './'
 
 type Props = {
   movement: Movement
   blockTypes: BlockType[]
   maxDuration: number
 }
-
-const types = {}
 
 export default function MovementItem({ movement, blockTypes, maxDuration }: Props) {
   const [weekAvailable, setWeekAvailable] = useState(maxDuration)

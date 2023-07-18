@@ -1,4 +1,4 @@
-import getMovements from '@/lib/getMovements'
+import { getMovements } from '@/lib'
 import SetExerciseForm from './components/SetExerciseForm'
 
 type Props = {}
@@ -7,9 +7,9 @@ export default async function AddExercisePage({}: Props) {
   const movements: Movement[] = await getMovements()
 
   return (
-    <section>
+    <main className='p-4 '>
       <h2 className='text-xl'>Add Exercise</h2>
       <SetExerciseForm movements={movements} />
-    </section>
+    </main>
   )
 }

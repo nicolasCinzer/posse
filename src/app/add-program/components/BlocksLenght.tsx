@@ -1,4 +1,4 @@
-import Movements from './Movements'
+import { Movements } from './'
 
 type Props = {
   maxDuration: number

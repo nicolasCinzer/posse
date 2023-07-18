@@ -1,6 +1,5 @@
-import AddProgramForm from './components/AddProgramForm'
-import getMovements from '@/lib/getMovements'
-import getBlockTypes from '@/lib/getBlockTypes'
+import { AddProgramForm } from './components'
+import { getMovements, getBlockTypes } from '@/lib'
 
 export default async function AddProgram() {
   const movementsData: Promise<Movement[]> = getMovements()
