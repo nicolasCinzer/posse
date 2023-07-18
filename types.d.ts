@@ -25,11 +25,13 @@ type Block = {
   duration: number
 }
 
+type ExerciseType = 'Basic' | 'Variant' | 'Accessory' | 'Other' | null
+
 type Exercise = {
   id: number
   movementId?: number
   name: string
-  type: 'Basic' | 'Variant' | 'Accessory' | 'Other' | null
+  type: ExerciseType
 }
 
 type Mesocycle = {
@@ -67,16 +69,29 @@ type RutineDayExercise = {
   comments: string
 }
 
+type ColorsAlias = 'dom' | 'acc' | 'comp'
+
+type Colors = {
+  bg?: ColorsAlias
+  bgHover?: ColorsAlias
+  text?: ColorsAlias
+  textHover?: ColorsAlias
+  border?: ColorsAlias
+  borderHover?: ColorsAlias
+}
+
 type Button = {
   children: string
   onClick?: (e: any) => void
   style?: string
+  colors?: Colors
   reference?: string
 }
 
 type Select = {
-  options: number[] | string[]
+  options: number[] | string[] | (string | ExerciseTypeEnum)[]
   onChange?: (e: any) => void
   style?: string
+  bgColor?: string
   id?: string
 }
