@@ -36,6 +36,7 @@ export default function BlockTypeLength({ blockType, maxDuration, blockTypesStat
         <Select
           options={Array.from(Array(maxDuration + 1).keys())}
           onChange={updateDuration}
+          bgColor='dom'
         />
       </div>
     </li>

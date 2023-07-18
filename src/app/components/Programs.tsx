@@ -5,14 +5,19 @@ import getPrograms from '@/lib/getPrograms'
 type Props = {}
 
 export default async function Programs({}: Props) {
-  const programsData: Promise<Program[]> =  getPrograms()
+  const programsData: Promise<Program[]> = getPrograms()
   const programs = await programsData
 
   return (
     <section className='grid grid-cols-2'>
       <h2 className='text-2xl px-2'>Programs</h2>
       <div className='flex justify-end items-center'>
-        <Button reference='/add-program'>Agregar Programa</Button>
+        <Button
+          reference='/add-program'
+          colors={{ text: 'acc', textHover: 'dom', bg: 'comp', bgHover: 'acc' }}
+        >
+          Agregar Programa
+        </Button>
       </div>
       <ProgramsList programs={programs} />
     </section>

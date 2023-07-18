@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import Select from '@/src/components/ui/Select'
 
 export default function Program({ setProgram }: { setProgram: Dispatch<SetStateAction<Partial<Program>>> }) {
@@ -17,6 +17,7 @@ export default function Program({ setProgram }: { setProgram: Dispatch<SetStateA
             options={Array.from(Array(49).keys())}
             onChange={e => setProgram(prev => ({ ...prev, duration: parseInt(e.target.value) }))}
             id='duration-select'
+            bgColor='dom'
           />
         </div>
       </div>

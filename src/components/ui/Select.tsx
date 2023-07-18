@@ -1,4 +1,4 @@
-export default function Select({ options, onChange, style, id }: Select) {
+export default function Select({ options, onChange, style, bgColor, id }: Select) {
   const numberOptions = options.map(number => (
     <option
       key={number}
@@ -20,7 +20,7 @@ export default function Select({ options, onChange, style, id }: Select) {
   const select = (
     <select
       id={id}
-      className={`bg-dom-color p-2 gap-4 outline-none ${style}`}
+      className={`bg-${bgColor}-color p-2 gap-4 outline-none ${style}`}
       onChange={onChange}
     >
       {typeof options[0] === 'number' ? numberOptions : stringsOptions}
