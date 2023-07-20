@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button'
+import { Button } from '@/components/ui'
 import ProgramsList from './ProgramsList'
 import getPrograms from '@/lib/getPrograms'
 

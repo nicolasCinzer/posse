@@ -3,8 +3,7 @@
 import { FormEvent, useState } from 'react'
 import { ExerciseTypeEnum } from '@/lib/enums'
 import { ExercisesList } from '../../components'
-import Button from '@/src/components/ui/Button'
-import Select from '@/src/components/ui/Select'
+import { Button, Select } from '@/src/components/ui'
 import { addExercise } from '@/lib'
 
 type Props = {

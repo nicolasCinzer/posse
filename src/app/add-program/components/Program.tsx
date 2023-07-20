@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import Select from '@/src/components/ui/Select'
+import { Select } from '@/src/components/ui'
 
 export default function Program({ setProgram }: { setProgram: Dispatch<SetStateAction<Partial<Program>>> }) {
   return (

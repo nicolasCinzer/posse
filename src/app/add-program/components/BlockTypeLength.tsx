@@ -1,4 +1,4 @@
-import Select from '@/src/components/ui/Select'
+import { Select } from '@/src/components/ui'
 import { Dispatch, SetStateAction } from 'react'
 
 type Props = {

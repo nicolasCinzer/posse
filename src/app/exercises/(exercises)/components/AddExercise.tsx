@@ -1,6 +1,6 @@
 'use client'
 
-import Button from '@/src/components/ui/Button'
+import { Button } from '@/src/components/ui'
 import { useRouter } from 'next/navigation'
 
 export default function AddExercise() {
