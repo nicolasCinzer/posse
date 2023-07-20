@@ -15,10 +15,14 @@ export default function ExerciseItem({ exercise, movements }: Props) {
         {exercise.name}
         <span className='block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-acc-color'></span>
       </Link>
-      <div className=''>
-        <div className='w-max px-3 py-1 rounded-full bg-comp-color'>
-          {movements.find(movement => movement.id === exercise.movementId)?.name || ''}
-        </div>
+      <div>
+        {exercise.movementId ? (
+          <div className='w-max px-3 py-1 rounded-full bg-comp-color'>
+            {movements.find(movement => movement.id === exercise.movementId)?.name || ''}
+          </div>
+        ) : (
+          <div className='w-max px-3 py-1 bg-dom-color text-dom-color'>a</div>
+        )}
       </div>
       <div className='flex justify-end'>{exercise.type}</div>
     </li>

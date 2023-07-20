@@ -1,5 +1,5 @@
 import { getExercises, getMovements } from '@/lib'
-import { ExercisesList } from './components'
+import { ExercisesList } from '../components'
 
 export default async function Exercises() {
   const exercises: Exercise[] = await getExercises({})

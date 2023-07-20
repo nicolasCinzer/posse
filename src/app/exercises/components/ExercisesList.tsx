@@ -7,7 +7,7 @@ type Props = {
 
 export default function ExercisesList({ exercises, movements }: Props) {
   return (
-    <ul className='flex flex-col gap-4 '>
+    <ul className='flex flex-col gap-4'>
       {exercises.map(exercise => (
         <ExerciseItem
           key={exercise.id}
