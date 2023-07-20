@@ -62,7 +62,7 @@ export default function SetExerciseForm({ movements, exercises }: Props) {
         </div>
         <Button
           style='col-span-2'
-          colors={{ text: 'acc', textHover: 'acc', bg: 'comp', bgHover: 'dom' }}
+          buttonConfig='form'
         >
           Add
         </Button>

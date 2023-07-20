@@ -9,7 +9,7 @@ export default function AddExercise() {
   return (
     <Button
       onClick={() => router.push(`/exercises/add-exercise`)}
-      colors={{ text: 'acc', textHover: 'dom', bg: 'comp', bgHover: 'acc' }}
+      buttonConfig='page'
     >
       Add Exercise
     </Button>

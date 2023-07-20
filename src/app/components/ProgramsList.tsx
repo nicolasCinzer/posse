@@ -15,7 +15,7 @@ export default function ProgramsList({ programs }: Props) {
           <Button
             reference={`/mesocycles/${program.name}`}
             style={`font-bold text-lg`}
-            colors={{ text: 'acc', textHover: 'dom', bg: 'comp', bgHover: 'acc' }}
+            buttonConfig='page'
           >
             {program.name}
           </Button>

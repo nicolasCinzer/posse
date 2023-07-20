@@ -14,7 +14,7 @@ export default async function Programs({}: Props) {
       <div className='flex justify-end items-center'>
         <Button
           reference='/add-program'
-          colors={{ text: 'acc', textHover: 'dom', bg: 'comp', bgHover: 'acc' }}
+          buttonConfig='page'
         >
           Agregar Programa
         </Button>

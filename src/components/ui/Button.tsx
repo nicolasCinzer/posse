@@ -2,18 +2,23 @@
 
 import Link from 'next/link'
 
-export default function Button({ children, onClick, style, colors, reference }: Button) {
+const ButtonConfig = {
+  page: 'bg-comp-color text-acc-color hover:bg-acc-color hover:text-dom-color',
+  form: 'bg-comp-color text-acc-color hover:bg-dom-color hover:text-acc-color'
+}
+
+export default function Button({ children, onClick, style, buttonConfig, reference }: Button) {
   const button = reference ? (
     <Link
       href={reference}
-      className={`text-${colors?.text}-color py-1 px-2 rounded-md bg-${colors?.bg}-color hover:bg-${colors?.bgHover}-color hover:text-${colors?.textHover}-color ease-in-out transition-all duration-200 ${style}`}
+      className={`${ButtonConfig[buttonConfig]} py-1 px-2 rounded-md ease-in-out transition-all duration-200 ${style || ''}`}
     >
       {children}
     </Link>
   ) : (
     <button
       onClick={onClick}
-      className={`text-${colors?.text}-color py-1 px-2 rounded-md bg-${colors?.bg}-color hover:bg-${colors?.bgHover}-color hover:text-${colors?.textHover}-color ease-in-out transition-all duration-200 ${style}`}
+      className={`${ButtonConfig[buttonConfig]} py-1 px-2 rounded-md ease-in-out transition-all duration-200 ${style || ''}`}
     >
       {children}
     </button>
