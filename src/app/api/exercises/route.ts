@@ -22,11 +22,28 @@ export async function GET(request: Request) {
   const params = new URLSearchParams(paramsModified)
 
   const URLFetch = `${EXERCISES_URL}?${params.toString().replaceAll(/%2520/g, '%20')}`
-  console.log(URLFetch)
 
   const res = await fetch(URLFetch)
 
   const exercise: Exercise[] = await res.json()
 
   return NextResponse.json(exercise)
+}
+
+export async function POST(request: Request) {
+  const { name, movementId, type }: Partial<Exercise> = await request.json()
+
+  if (!name) NextResponse.json({ message: 'Error: Exercise Name is required.' })
+
+  const res = await fetch(EXERCISES_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, movementId, type })
+  })
+
+  const newExercise: Exercise = await res.json()
+
+  return NextResponse.json(newExercise)
 }
