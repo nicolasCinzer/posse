@@ -75,8 +75,12 @@ export default function SetExerciseForm({ movements, exercises }: Props) {
       <ExercisesList
         exercises={
           exerciseType && movementType.movementId
-            ? exercises.filter(exercise => exercise.type === exerciseType && exercise.movementId === movementType.movementId)
-            : exercises.filter(exercise => exercise.movementId === movementType.movementId || exercise.type === exerciseType)
+            ? exercises
+                .filter(exercise => exercise.type === exerciseType && exercise.movementId === movementType.movementId)
+                .sort((a, b) => a.movementId - b.movementId)
+            : exercises
+                .filter(exercise => (exercise.movementId === movementType.movementId && movementType.movementId) || exercise.type === exerciseType)
+                .sort((a, b) => a.movementId - b.movementId)
         }
         movements={movements}
       />
