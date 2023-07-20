@@ -11,9 +11,9 @@ export default function Select({ options, onChange, style, bgColor, id }: Select
   const stringsOptions = options.map(string => (
     <option
       key={string}
-      value={string}
+      value={string.id}
     >
-      {string}
+      {string.name || string}
     </option>
   ))
 
