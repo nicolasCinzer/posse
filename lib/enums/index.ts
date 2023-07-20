@@ -1,6 +1,5 @@
 export enum ExerciseTypeEnum {
   'Basic',
   'Variant',
-  'Accessory',
-  'Other'
+  'Accessory'
 }
