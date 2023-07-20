@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function ExercisesLayout({ children }: { children: ReactElement }) {
   return (
     <>
-      <main className='p-4 flex flex-col gap-4'>
+      <main className='p-4 flex flex-col gap-4 overflow-hidden'>
         <section className='flex justify-between'>
           <Link
             href={'/exercises'}

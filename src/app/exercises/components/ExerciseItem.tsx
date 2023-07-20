@@ -9,7 +9,7 @@ export default function ExerciseItem({ exercise, movements }: Props) {
   return (
     <li className='border px-4 py-2 grid grid-cols-3 gap-2 items-center'>
       <Link
-        href={`/exercises/stats/${exercise.id}`}
+        href={`/exercises/stats/${exercise.name}`}
         className='group text-acc-color transition duration-300 w-max'
       >
         {exercise.name}

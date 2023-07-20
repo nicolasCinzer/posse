@@ -6,7 +6,7 @@ export default async function Exercises() {
   const movements: Movement[] = await getMovements()
 
   return (
-    <section className=''>
+    <section className='overflow-y-scroll pr-4'>
       <ExercisesList
         exercises={exercises}
         movements={movements}
