@@ -1,10 +1,11 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { addExercise } from '@/lib'
 import { ExerciseTypeEnum } from '@/lib/enums'
 import { ExercisesList } from '../../components'
 import { Button, Select } from '@/src/components/ui'
-import { addExercise } from '@/lib'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   movements: Movement[]
@@ -16,6 +17,8 @@ export default function SetExerciseForm({ movements, exercises }: Props) {
   const [exerciseType, setExerciseType] = useState<ExerciseType>('Basic')
   const [exerciseName, setExerciseName] = useState<string>('')
 
+  const router = useRouter()
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -24,6 +27,8 @@ export default function SetExerciseForm({ movements, exercises }: Props) {
       movementId: movementType.movementId,
       type: exerciseType
     })
+
+    router.push('/exercises')
   }
 
   return (
