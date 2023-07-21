@@ -1,4 +1,4 @@
-import { ExercisesList } from '../components'
+import { ExercisesList } from '../../components'
 import { getExercises, getMovements } from '@/lib'
 
 type Props = {
