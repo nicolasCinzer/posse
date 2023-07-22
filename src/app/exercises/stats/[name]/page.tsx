@@ -6,18 +6,20 @@ import { UnderlineEffect } from '@/src/components/ui'
 type Props = { params: { name: string } }
 
 export async function generateMetadata({ params: { name } }: Props): Promise<Metadata> {
-  // const [exercise]: Exercise[] = await getExercises({ name, queryType: 'equal' })
+  try {
+    const [exercise]: Exercise[] = await getExercises({
+      name,
+      queryType: 'equal'
+    })
 
-  // console.log(exercise)
-  // if (!exercise.id) {
-  //   return {
-  //     title: 'Exercise not Found'
-  //   }
-  // }
-
-  return {
-    title: /* exercise. */name,
-    description: `This is the page of ${/* exercise. */name}`
+    return {
+      title: exercise.name,
+      description: `This is the page of ${exercise.name}`
+    }
+  } catch (e) {
+    return {
+      title: 'Exercise not Found'
+    }
   }
 }
 
