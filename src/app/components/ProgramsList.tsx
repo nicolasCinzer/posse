@@ -13,7 +13,7 @@ export default function ProgramsList({ programs }: Props) {
           className='flex flex-col gap-1 items-center'
         >
           <Button
-            reference={`/mesocycles/${program.name}`}
+            reference={`/program/${program.name}`}
             style={`font-bold text-lg`}
             buttonConfig='page'
           >
@@ -28,7 +28,12 @@ export default function ProgramsList({ programs }: Props) {
   const warningMessage = (
     <div className='flex flex-col justify-center items-center h-full text-xl text-acc-color gap-1'>
       <div className=''>Aun no creaste ningun programa!</div>
-      <Button>Crea uno!</Button>
+      <Button
+        reference={`add-program`}
+        buttonConfig='page'
+      >
+        Crea uno!
+      </Button>
     </div>
   )
 
