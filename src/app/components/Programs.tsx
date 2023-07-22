@@ -5,8 +5,7 @@ import getPrograms from '@/lib/getPrograms'
 type Props = {}
 
 export default async function Programs({}: Props) {
-  const programsData: Promise<Program[]> = getPrograms()
-  const programs = await programsData
+  const programs = await getPrograms({})
 
   return (
     <section className='grid grid-cols-2'>
