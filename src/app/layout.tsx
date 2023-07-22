@@ -4,7 +4,7 @@ import { Figtree } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 
 export const metadata = {
-  title: 'Home',
+  title: 'Posse',
   description: 'Powerlifting Program'
 }
 

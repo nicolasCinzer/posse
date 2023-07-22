@@ -1,6 +1,10 @@
 import { AddProgramForm } from './components'
 import { getMovements, getBlockTypes } from '@/lib'
 
+export const metadata = {
+  title: 'Add Program'
+}
+
 export default async function AddProgram() {
   const movementsData: Promise<Movement[]> = getMovements()
   const movements = await movementsData
