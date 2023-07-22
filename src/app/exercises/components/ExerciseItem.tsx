@@ -1,3 +1,4 @@
+import { UnderlineEffect } from '@/src/components/ui'
 import Link from 'next/link'
 
 type Props = {
@@ -12,8 +13,7 @@ export default function ExerciseItem({ exercise, movements }: Props) {
         href={`/exercises/stats/${exercise.name}`}
         className='group text-acc-color transition duration-300 w-max'
       >
-        {exercise.name}
-        <span className='block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-acc-color'></span>
+        <UnderlineEffect>{exercise.name}</UnderlineEffect>
       </Link>
       <div>
         {exercise.movementId ? (
