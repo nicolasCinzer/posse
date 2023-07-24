@@ -12,7 +12,7 @@ export default async function Exercises() {
   return (
     <section className='overflow-y-scroll pr-4'>
       <ExercisesList
-        exercises={exercises}
+        exercises={exercises.sort((a, b) => a.movementId - b.movementId)}
         movements={movements}
       />
     </section>

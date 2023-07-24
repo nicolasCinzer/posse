@@ -12,10 +12,11 @@ export default function ExerciseItem({ exercise, movements }: Props) {
       <Link
         href={`/exercises/stats/${exercise.name}`}
         className='group text-acc-color transition duration-300 w-max'
+        title='Edit exercise'
       >
         <UnderlineEffect>{exercise.name}</UnderlineEffect>
       </Link>
-      <div>
+      <div className='flex justify-center'>
         {exercise.movementId ? (
           <div className='w-max px-3 py-1 rounded-full bg-comp-color'>
             {movements.find(movement => movement.id === exercise.movementId)?.name || ''}

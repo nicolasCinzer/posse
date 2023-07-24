@@ -16,7 +16,6 @@ export default function ExercisesLayout({ children }: { children: ReactElement }
           <AddExercise />
         </section>
         <Search />
-        <PresetsFilters />
         {children}
       </main>
     </>
