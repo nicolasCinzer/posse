@@ -1,4 +1,4 @@
-import { AddProgramForm } from './components'
+import { Program } from './components'
 import { getMovements, getBlockTypes } from '@/lib'
 
 export const metadata = {
@@ -14,10 +14,7 @@ export default async function AddProgram() {
 
   return (
     <main className='p-4 flex flex-col gap-4 no-scrollbar overflow-auto'>
-      <AddProgramForm
-        movements={movements}
-        blockTypes={blockTypes}
-      />
+      <Program />
     </main>
   )
 }
