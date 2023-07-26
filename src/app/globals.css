@@ -5,7 +5,7 @@
 :root {
   --dom-color: #ffffff;
   --acc-color: #110000;
-  --comp-color: #a10f0f;
+  --comp-color: #de1515;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,4 +45,19 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--acc-color);
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
 }
