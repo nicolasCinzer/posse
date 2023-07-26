@@ -13,7 +13,7 @@ export default async function AddProgram() {
   const blockTypes = await blockTypesData
 
   return (
-    <main className='p-4 flex flex-col gap-4'>
+    <main className='p-4 flex flex-col gap-4 no-scrollbar overflow-auto'>
       <AddProgramForm
         movements={movements}
         blockTypes={blockTypes}
