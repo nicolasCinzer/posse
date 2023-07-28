@@ -11,3 +11,21 @@ export async function GET(request: Request) {
 
   return NextResponse.json(programs)
 }
+
+export async function POST(request: Request) {
+  const { name, duration, workDaysNumber }: Partial<Program> = await request.json()
+
+  if (!name) NextResponse.json({ message: 'Error: Program Name is required.' })
+
+  const res = await fetch(PROGRAMS_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, duration, workDaysNumber })
+  })
+
+  const newProgram: Program = await res.json()
+
+  return NextResponse.json(newProgram)
+}

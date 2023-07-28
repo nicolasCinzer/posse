@@ -1,23 +1,27 @@
 'use client'
 import { useState, FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button, Select } from '@/src/components/ui'
+import { addProgram } from '@/lib'
 
 export default function Program() {
   const [program, setProgram] = useState<Partial<Program>>({ name: '', duration: 0, workDaysNumber: 0 })
   const [error, setError] = useState({ name: false, duration: false, workDaysNumber: false })
 
-  console.log(error)
+  const router = useRouter()
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     !program.name ? setError(prev => ({ ...prev, name: true })) : setError(prev => ({ ...prev, name: false }))
     !program.duration ? setError(prev => ({ ...prev, duration: true })) : setError(prev => ({ ...prev, duration: false }))
     !program.workDaysNumber ? setError(prev => ({ ...prev, workDaysNumber: true })) : setError(prev => ({ ...prev, workDaysNumber: false }))
 
-    if (error.name || error.duration || error.workDaysNumber) return
+    if (!program.name || !program.duration || !program.workDaysNumber) return
 
-    
+    await addProgram(program)
+
+    router.push(`program/${program.name}`)
   }
 
   return (
@@ -43,7 +47,7 @@ export default function Program() {
       <div className='col-span-2'>
         <label
           htmlFor='worksday-select'
-          className={`${error.name ? 'text-comp-color' : 'text-acc-color'}`}
+          className={`${error.workDaysNumber ? 'text-comp-color' : 'text-acc-color'}`}
         >
           How many days a week will train?
         </label>
@@ -57,7 +61,7 @@ export default function Program() {
       <div className='col-span-2'>
         <label
           htmlFor='duration-select'
-          className={`${error.name ? 'text-comp-color' : 'text-acc-color'}`}
+          className={`${error.duration ? 'text-comp-color' : 'text-acc-color'}`}
         >
           How many weeks will program last?
         </label>
