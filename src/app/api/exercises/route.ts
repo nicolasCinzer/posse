@@ -39,8 +39,6 @@ export async function GET(request: Request) {
     URLFetch = `${URLFetch}?${decodeURI(params.toString())}`
   }
 
-  console.log(URLFetch)
-
   const res = await fetch(URLFetch)
 
   const exercise: Exercise[] = await res.json()
