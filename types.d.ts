@@ -16,6 +16,7 @@ type Program = {
   id: number
   name: string
   duration: number
+  workDaysNumber: number
 }
 
 type Block = {
@@ -25,11 +26,11 @@ type Block = {
   duration: number
 }
 
-type ExerciseType = 'Basic' | 'Variant' | 'Accessory' | 'Other' | null
+type ExerciseType = 'Basic' | 'Variant' | 'Accessory' | null
 
 type Exercise = {
   id: number
-  movementId?: number
+  movementId: number
   name: string
   type: ExerciseType
 }
@@ -69,27 +70,20 @@ type RutineDayExercise = {
   comments: string
 }
 
-type ColorsAlias = 'dom' | 'acc' | 'comp'
-
-type Colors = {
-  bg?: ColorsAlias
-  bgHover?: ColorsAlias
-  text?: ColorsAlias
-  textHover?: ColorsAlias
-  border?: ColorsAlias
-  borderHover?: ColorsAlias
-}
+type ButtonConfigColors = 'page' | 'form'
 
 type Button = {
   children: string
   onClick?: (e: any) => void
   style?: string
-  colors?: Colors
+  buttonConfig: ButtonConfigColors
   reference?: string
 }
 
+type SelectOptions = number[] | string[] | (string | ExerciseTypeEnum)[] | Partial<Movement[]>
+
 type Select = {
-  options: number[] | string[] | (string | ExerciseTypeEnum)[]
+  options: SelectOptions
   onChange?: (e: any) => void
   style?: string
   bgColor?: string
