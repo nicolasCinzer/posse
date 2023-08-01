@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, MouseEventHandler } from 'react'
 import { MovementItem } from './'
 import { MdCheck, MdClose } from 'react-icons/md'
 import { UnderlineEffect } from '@/src/components/ui'
@@ -14,6 +14,18 @@ type Props = {
 export default function Movements({ maxDuration, movements, blockTypes }: Props) {
   const [currentMovements, setCurrentMovements] = useState<Movement[]>(movements)
   const [showHint, setShowHint] = useState(false)
+
+  const handleChangeMovementTrained = (movement: Movement, action: 'ADD' | 'REMOVE') => {
+    if (action === 'REMOVE') {
+      setCurrentMovements(currentMovements.filter(item => item.id !== movement.id))
+
+      localStorage.removeItem(movement.name)
+    }
+
+    if (action === 'ADD') {
+      setCurrentMovements([...currentMovements, movement])
+    }
+  }
 
   const movementsContainers = (
     <>
@@ -30,7 +42,7 @@ export default function Movements({ maxDuration, movements, blockTypes }: Props)
         <div className='col-span-4 bg-acc-color text-dom-color py-2 px-4 rounded'>
           After knowing how many weeks the program will last, you want to set many weeks for every movement at every type block. In some cases, one
           movement gonna take more weeks of some block type training in relation to others. For example, may hypertrophy for Bench Press will take
-          more week in comparison to Deadlift because we Bench Press is more muscular growth dependent.
+          more weeks in comparison to Deadlift because Bench Press is more muscular growth dependent.
         </div>
       ) : (
         <></>
@@ -45,12 +57,12 @@ export default function Movements({ maxDuration, movements, blockTypes }: Props)
             {currentMovements.map(item => item.id).includes(movement.id) ? (
               <MdCheck
                 className='text-lg cursor-pointer'
-                onClick={() => setCurrentMovements(currentMovements.filter(item => item.id !== movement.id))}
+                onClick={() => handleChangeMovementTrained(movement, 'REMOVE')}
               />
             ) : (
               <MdClose
                 className='text-lg cursor-pointer'
-                onClick={() => setCurrentMovements([...currentMovements, movement])}
+                onClick={() => handleChangeMovementTrained(movement, 'ADD')}
               />
             )}
           </li>
