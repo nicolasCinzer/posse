@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { Select } from '@/src/components/ui'
 
 type Props = {
+  movement: string
   blockType: BlockType
   maxDuration: number
   blockTypesState: BlockTypeState[]
@@ -9,7 +10,7 @@ type Props = {
   setWeekAvailable: Dispatch<SetStateAction<number>>
 }
 
-export default function BlockTypeLength({ blockType, maxDuration, blockTypesState, setBlockTypesState, setWeekAvailable }: Props) {
+export default function BlockTypeLength({ movement, blockType, maxDuration, blockTypesState, setBlockTypesState, setWeekAvailable }: Props) {
   const updateDuration = (e: any) => {
     const durations = blockTypesState.filter(item => item.id !== blockType.id).map(item => item.currentDuration)
     durations.push(parseInt(e.target.value))
@@ -25,7 +26,21 @@ export default function BlockTypeLength({ blockType, maxDuration, blockTypesStat
         return item
       })
     )
+
     setWeekAvailable(maxDuration - weeksOcuped)
+
+    localStorage.setItem(
+      movement,
+      JSON.stringify({
+        block: blockTypesState.map(item => {
+          if (item.id === blockType.id) {
+            return { ...item, currentDuration: parseInt(e.target.value) }
+          }
+
+          return item
+        })
+      })
+    )
   }
 
   return (

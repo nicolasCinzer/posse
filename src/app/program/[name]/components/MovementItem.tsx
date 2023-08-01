@@ -22,6 +22,7 @@ export default function MovementItem({ movement, blockTypes, maxDuration }: Prop
         {blockTypesState.map(blockType => (
           <BlockTypeLength
             key={blockType.id}
+            movement={movement.name}
             blockType={blockType}
             maxDuration={maxDuration}
             blockTypesState={blockTypesState}
