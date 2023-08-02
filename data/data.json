@@ -143,18 +143,6 @@
       "id": 5
     }
   ],
-  "blocks": [
-    {
-      "id": 1,
-      "programId": 1,
-      "blocktypeId": 1,
-      "movementId": 1,
-      "duration": 5
-    }
-  ],
-  "rutineDay": [
-    {
-      "id": 1
-    }
-  ]
+  "blocks": [],
+  "rutineDay": []
 }
