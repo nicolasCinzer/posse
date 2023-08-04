@@ -13,6 +13,8 @@ export default function MovementItem({ movement, blockTypes, maxDuration }: Prop
   const [weekAvailable, setWeekAvailable] = useState(maxDuration)
   const [blockTypesState, setBlockTypesState] = useState<BlockTypeState[]>(blockTypes.map(item => ({ ...item, currentDuration: 0 })))
 
+  console.log(blockTypesState)
+  
   return (
     <article className='border rounded px-4 py-2 grid grid-cols-3 gap-2 col-span-4'>
       <div className='font-bold'>{movement.name}</div>
