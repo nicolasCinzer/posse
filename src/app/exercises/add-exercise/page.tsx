@@ -1,6 +1,5 @@
 import { getExercises, getMovements } from '@/lib'
 import SetExerciseForm from './components/SetExerciseForm'
-import { ExercisesList } from '../components'
 
 type Props = {}
 
