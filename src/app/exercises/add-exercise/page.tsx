@@ -4,6 +4,11 @@ import { ExercisesList } from '../components'
 
 type Props = {}
 
+export const metadata = {
+  title: 'Add Exercise',
+  description: 'Powerlifting Program'
+}
+
 export default async function AddExercisePage({}: Props) {
   const movements: Movement[] = await getMovements()
   const exercises: Exercise[] = await getExercises({ queryType: 'all' })
