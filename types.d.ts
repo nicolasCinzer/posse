@@ -21,6 +21,7 @@ type Program = {
 
 type Block = {
   id: number
+  programId: number
   typeId: number
   movementId: number
   duration: number
