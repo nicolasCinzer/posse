@@ -32,7 +32,7 @@ export default function BlockTypeLength({ movement, blockType, maxDuration, bloc
     localStorage.setItem(
       movement,
       JSON.stringify({
-        block: blockTypesState.map(item => {
+        blocks: blockTypesState.map(item => {
           if (item.id === blockType.id) {
             return { ...item, currentDuration: parseInt(e.target.value) }
           }

@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { getBlockTypes, getExercises, getMovements, getPrograms, getBlocks } from '@/lib'
+import { getPrograms } from '@/lib'
 import { UnderlineEffect } from '@/src/components/ui'
 
 type Props = {

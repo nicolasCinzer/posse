@@ -1,4 +1,4 @@
-import { getBlockTypes, getExercises, getMovements, getPrograms, getBlocks } from '@/lib'
+import { getBlockTypes, getMovements, getPrograms } from '@/lib'
 import { BlocksLength } from './components'
 
 type Props = { params: { name: string } }
@@ -12,6 +12,7 @@ export default async function SetBlocks({ params: { name } }: Props) {
     <>
       <BlocksLength
         maxDuration={program.duration}
+        program={program}
         blockTypes={blockTypes}
         movements={movements}
       />
