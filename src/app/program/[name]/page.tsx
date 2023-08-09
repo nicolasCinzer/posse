@@ -1,4 +1,5 @@
 import { getPrograms, getBlocks, getMovements, getBlockTypes } from '@/lib'
+import ProgramPanel from './components/ProgramPanel'
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
@@ -32,7 +33,11 @@ export default async function Program({ params: { name } }: Props) {
     redirect(`/program/${name}/blocks`)
   }
 
-  return <div className='p-4 grid grid-cols-4 gap-4 no-scrollbar overflow-auto'></div>
+  return (
+    <div className='p-4 grid grid-cols-4 gap-4 no-scrollbar overflow-auto'>
+      <ProgramPanel />
+    </div>
+  )
 }
 
 export async function generateStaticParams() {

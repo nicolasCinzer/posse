@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import { getPrograms } from '@/lib'
 import { UnderlineEffect } from '@/src/components/ui'
+import { ProgramProvider } from '@/src/context/ProgramContext'
 
 type Props = {
   children: ReactElement
@@ -20,7 +21,7 @@ export default async function ProgramLayout({ children, params: { name } }: Prop
         <UnderlineEffect>{programName}</UnderlineEffect>
       </h1>
       <h2 className='col-span-2 flex justify-end items-center text-xl'>{program.duration} Weeks</h2>
-      {children}
+      <ProgramProvider>{children}</ProgramProvider>
     </main>
   )
 }
