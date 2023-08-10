@@ -1,12 +1,32 @@
 'use client'
+import { useEffect } from 'react'
+import { Movements, DaysTable } from '.'
 import { useProgram } from '@/src/context/ProgramContext'
 
-function ProgramPanel() {
-  const { dispatch, programState, REDUCER_ACTIONS } = useProgram()
-
-  console.log(programState)
-
-  return <div>ProgramPanel</div>
+type Props = {
+  program: Program
+  blockTypes: BlockType[]
+  movements: Movement[]
+  blocks: Block[]
 }
 
-export default ProgramPanel
+export default function ProgramPanel({ program, blockTypes, movements, blocks }: Props) {
+  const { dispatch, REDUCER_ACTIONS } = useProgram()
+
+  useEffect(() => {
+    dispatch({ type: REDUCER_ACTIONS.PROGRAM, payload: program })
+    dispatch({ type: REDUCER_ACTIONS.BLOCKS.ADD, payload: blocks })
+  }, [dispatch, REDUCER_ACTIONS, program, blocks])
+
+  return (
+    <>
+      <Movements
+        maxDuration={program.duration}
+        program={program}
+        blockTypes={blockTypes}
+        movements={movements}
+      />
+      <DaysTable />
+    </>
+  )
+}

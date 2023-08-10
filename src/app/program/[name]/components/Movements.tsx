@@ -1,25 +1,24 @@
 'use client'
 
-import { useState, MouseEventHandler } from 'react'
+import { useState } from 'react'
 import { MovementItem } from './'
 import { MdCheck, MdClose } from 'react-icons/md'
 import { UnderlineEffect } from '@/src/components/ui'
 
 type Props = {
+  program: Program
   maxDuration: number
   movements: Movement[]
   blockTypes: BlockType[]
 }
 
-export default function Movements({ maxDuration, movements, blockTypes }: Props) {
+export default function Movements({ maxDuration, movements, blockTypes, program }: Props) {
   const [currentMovements, setCurrentMovements] = useState<Movement[]>(movements)
   const [showHint, setShowHint] = useState(false)
 
   const handleChangeMovementTrained = (movement: Movement, action: 'ADD' | 'REMOVE') => {
     if (action === 'REMOVE') {
       setCurrentMovements(currentMovements.filter(item => item.id !== movement.id))
-
-      localStorage.removeItem(movement.name)
     }
 
     if (action === 'ADD') {
@@ -28,8 +27,8 @@ export default function Movements({ maxDuration, movements, blockTypes }: Props)
   }
 
   const movementsContainers = (
-    <>
-      <h2 className='text-xl col-span-2'>Set Blocks Lenght</h2>
+    <section className='grid grid-cols-4 gap-4 col-span-4'>
+      <h2 className='text-xl col-span-2'>Blocks Length by Movements</h2>
       <div className='flex justify-end items-center col-span-2'>
         <button
           className='group'
@@ -71,12 +70,13 @@ export default function Movements({ maxDuration, movements, blockTypes }: Props)
       {currentMovements.map(movement => (
         <MovementItem
           key={movement.id}
+          program={program}
           movement={movement}
           blockTypes={blockTypes}
           maxDuration={maxDuration}
         />
       ))}
-    </>
+    </section>
   )
 
   return movementsContainers
