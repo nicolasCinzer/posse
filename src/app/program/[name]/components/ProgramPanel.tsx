@@ -26,7 +26,7 @@ export default function ProgramPanel({ program, blockTypes, movements, blocks }:
         blockTypes={blockTypes}
         movements={movements}
       />
-      <DaysTable />
+      <DaysTable movements={movements} />
     </>
   )
 }
