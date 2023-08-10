@@ -36,12 +36,6 @@ type Exercise = {
   type: ExerciseType
 }
 
-type Mesocycle = {
-  id: number
-  blockID: number
-  duration: number
-}
-
 type PRs = {
   id: number
   exerciseId: number
@@ -55,7 +49,6 @@ type PRs = {
 type RutineDay = {
   id: number
   blockId: number
-  mesocycleId: number
   week: number
   day: number
 }
@@ -84,6 +77,7 @@ type Button = {
 type SelectOptions = number[] | string[] | (string | ExerciseTypeEnum)[] | Partial<Movement[]>
 
 type Select = {
+  selectedValue?: number | string
   options: SelectOptions
   onChange?: (e: any) => void
   style?: string
