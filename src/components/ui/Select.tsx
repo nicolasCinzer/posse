@@ -1,8 +1,9 @@
-export default function Select({ options, onChange, style, bgColor, id }: Select) {
+export default function Select({ selectedValue, options, onChange, style, bgColor, id }: Select) {
   const numberOptions = options.map(number => (
     <option
       key={number}
       value={number}
+      selected={number === selectedValue}
     >
       {number}
     </option>
@@ -12,6 +13,7 @@ export default function Select({ options, onChange, style, bgColor, id }: Select
     <option
       key={string}
       value={string.id}
+      selected={string === selectedValue}
     >
       {string.name || string}
     </option>
