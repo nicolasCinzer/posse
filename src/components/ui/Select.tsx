@@ -3,7 +3,7 @@ export default function Select({ selectedValue, options, onChange, style, bgColo
     <option
       key={number}
       value={number}
-      selected={number === selectedValue}
+      defaultValue={selectedValue}
     >
       {number}
     </option>
@@ -13,7 +13,7 @@ export default function Select({ selectedValue, options, onChange, style, bgColo
     <option
       key={string}
       value={string.id}
-      selected={string === selectedValue}
+      defaultValue={selectedValue}
     >
       {string.name || string}
     </option>
@@ -22,7 +22,7 @@ export default function Select({ selectedValue, options, onChange, style, bgColo
   const select = (
     <select
       id={id}
-      className={`bg-${bgColor}-color p-2 gap-4 outline-none ${style}`}
+      className={`bg-${bgColor}-color p-2 gap-4 outline-none ${style ? style : ''}`}
       onChange={onChange}
     >
       {typeof options[0] === 'number' ? numberOptions : stringsOptions}
