@@ -29,14 +29,15 @@ export default async function Program({ params: { name } }: Props) {
   const blockTypes: BlockType[] = await getBlockTypes()
   // const exercises: Exercise[] = await getExercises({ queryType: 'all' })
 
-  if (!blocks.length) {
-    redirect(`/program/${name}/blocks`)
-  }
-
   return (
-    <div className='p-4 grid grid-cols-4 gap-4 no-scrollbar overflow-auto'>
-      <ProgramPanel />
-    </div>
+    <article className=' grid grid-cols-4 gap-4 col-span-4 no-scrollbar overflow-auto'>
+      <ProgramPanel
+        program={program}
+        blockTypes={blockTypes}
+        movements={movements}
+        blocks={blocks}
+      />
+    </article>
   )
 }
 
