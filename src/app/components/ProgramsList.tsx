@@ -14,7 +14,7 @@ export default function ProgramsList({ programs }: Props) {
         >
           <Button
             reference={`/program/${program.name}`}
-            style={`font-bold text-lg`}
+            style={`text-lg`}
             buttonConfig='page'
           >
             {program.name}
