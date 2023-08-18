@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext,  useReducer, ReactElement, useMemo } from 'react'
+import { createContext, useContext, useReducer, ReactElement, useMemo } from 'react'
 
 const REDUCER_ACTION_TYPE = {
   PROGRAM: 'PROGRAM',
@@ -87,9 +87,10 @@ const useProgramContext = (initProgramState: ProgramType) => {
 
   const currentsMovements = [...new Set(programState.blocks.map(block => block.movementId))]
 
-  console.log(currentsMovements)
+  let currentWeek = Math.max(...([...new Set(programState.rutineDay.filter(day => day.week).map(day => day.week))] as number[]))
+  !currentWeek ? currentWeek : (currentWeek = 1)
 
-  return { dispatch, programState, REDUCER_ACTIONS, initProgramState: programState }
+  return { dispatch, programState, REDUCER_ACTIONS, initProgramState: programState, currentsMovements, currentWeek }
 }
 
 type useProgramContextType = ReturnType<typeof useProgramContext>
@@ -98,7 +99,9 @@ const initProgramContextState: useProgramContextType = {
   programState: initProgramState,
   dispatch: () => {},
   REDUCER_ACTIONS: REDUCER_ACTION_TYPE,
-  initProgramState: initProgramState
+  initProgramState: initProgramState,
+  currentsMovements: [],
+  currentWeek: 1
 }
 
 const ProgramContext = createContext<useProgramContextType>(initProgramContextState)
