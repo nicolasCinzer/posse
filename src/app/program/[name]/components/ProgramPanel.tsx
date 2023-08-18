@@ -8,9 +8,10 @@ type Props = {
   blockTypes: BlockType[]
   movements: Movement[]
   blocks: Block[]
+  exercises: Exercise[]
 }
 
-export default function ProgramPanel({ program, blockTypes, movements, blocks }: Props) {
+export default function ProgramPanel({ program, blockTypes, movements, blocks, exercises }: Props) {
   const { dispatch, REDUCER_ACTIONS } = useProgram()
 
   useEffect(() => {
@@ -26,7 +27,10 @@ export default function ProgramPanel({ program, blockTypes, movements, blocks }:
         blockTypes={blockTypes}
         movements={movements}
       />
-      <DaysTable movements={movements} />
+      <DaysTable
+        movements={movements}
+        exercises={exercises}
+      />
     </>
   )
 }
