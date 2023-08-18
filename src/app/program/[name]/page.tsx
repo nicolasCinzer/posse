@@ -1,4 +1,4 @@
-import { getPrograms, getBlocks, getMovements, getBlockTypes } from '@/lib'
+import { getPrograms, getBlocks, getMovements, getBlockTypes, getExercises } from '@/lib'
 import ProgramPanel from './components/ProgramPanel'
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
@@ -27,7 +27,7 @@ export default async function Program({ params: { name } }: Props) {
   const blocks: Block[] = await getBlocks({ programId: program.id })
   const movements: Movement[] = await getMovements()
   const blockTypes: BlockType[] = await getBlockTypes()
-  // const exercises: Exercise[] = await getExercises({ queryType: 'all' })
+  const exercises: Exercise[] = await getExercises({ queryType: 'all' })
 
   return (
     <article className=' grid grid-cols-4 gap-4 col-span-4 no-scrollbar overflow-auto'>
@@ -36,6 +36,7 @@ export default async function Program({ params: { name } }: Props) {
         blockTypes={blockTypes}
         movements={movements}
         blocks={blocks}
+        exercises={exercises}
       />
     </article>
   )
