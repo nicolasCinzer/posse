@@ -1,12 +1,11 @@
 import { Button } from '@/components/ui'
 import ProgramsList from './ProgramsList'
-import getPrograms from '@/lib/getPrograms'
 
-type Props = {}
+type Props = {
+  programs: Program[]
+}
 
-export default async function Programs({}: Props) {
-  const programs = await getPrograms({})
-
+export default async function Programs({ programs }: Props) {
   return (
     <section className='grid grid-cols-2'>
       <h2 className='text-2xl px-2'>Programs</h2>
@@ -15,7 +14,7 @@ export default async function Programs({}: Props) {
           reference='/add-program'
           buttonConfig='page'
         >
-          Agregar Programa
+          Add Program
         </Button>
       </div>
       <ProgramsList programs={programs} />

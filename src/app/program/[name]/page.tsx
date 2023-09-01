@@ -1,7 +1,6 @@
 import { getPrograms, getBlocks, getMovements, getBlockTypes, getExercises } from '@/lib'
 import ProgramPanel from './components/ProgramPanel'
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 
 type Props = { params: { name: string } }
 
@@ -21,20 +20,14 @@ export async function generateMetadata({ params: { name } }: Props): Promise<Met
 }
 
 export default async function Program({ params: { name } }: Props) {
-  const programName = decodeURI(name)
-
   const [program]: Program[] = await getPrograms({ name })
-  const blocks: Block[] = await getBlocks({ programId: program.id })
-  const movements: Movement[] = await getMovements()
-  const blockTypes: BlockType[] = await getBlockTypes()
+  const blocks: Block[] = await getBlocks({ programId: program.id as number })
   const exercises: Exercise[] = await getExercises({ queryType: 'all' })
 
   return (
     <article className=' grid grid-cols-4 gap-4 col-span-4 no-scrollbar overflow-auto'>
       <ProgramPanel
         program={program}
-        blockTypes={blockTypes}
-        movements={movements}
         blocks={blocks}
         exercises={exercises}
       />
@@ -43,7 +36,7 @@ export default async function Program({ params: { name } }: Props) {
 }
 
 export async function generateStaticParams() {
-  const programs: Program[] = await getPrograms({})
+  const programs: Program[] = await getPrograms()
 
   return programs?.map(program => ({ name: encodeURI(program.name) }))
 }

@@ -1,27 +1,21 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { BlockTypeLength } from './'
-import { useProgram } from '@/src/context/ProgramContext'
+import { useProgram, useBlockTypes } from '@/store'
 
 type Props = {
-  program: Program
+  programId: number
   movement: Movement
-  blockTypes: BlockType[]
   maxDuration: number
 }
 
-export default function MovementItem({ program, movement, blockTypes, maxDuration }: Props) {
-  const {
-    programState: { blocks }
-  } = useProgram()
+export default function MovementItem({ programId, movement, maxDuration }: Props) {
+  const [totalBlockDuration] = useProgram(state => [state.totalBlocksDuration])
+  const [blockTypes] = useBlockTypes(state => [state.blockTypes])
   const [weekAvailable, setWeekAvailable] = useState(maxDuration)
 
-  const totalDuration = blocks
-    .filter(block => block.movementId === movement.id)
-    .reduce((prev, curr) => {
-      return prev + (curr.duration as number)
-    }, 0)
+  const totalDuration = totalBlockDuration[movement.id as number]
 
   return (
     <article className='border rounded px-4 py-2 grid grid-cols-3 gap-2 col-span-4'>
@@ -34,8 +28,8 @@ export default function MovementItem({ program, movement, blockTypes, maxDuratio
         {blockTypes.map(blockType => (
           <BlockTypeLength
             key={blockType.id}
-            program={program.id}
-            movement={movement}
+            programId={programId}
+            movementId={movement.id as number}
             blockType={blockType}
             maxDuration={maxDuration}
             setWeekAvailable={setWeekAvailable}

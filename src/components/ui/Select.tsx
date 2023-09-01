@@ -3,7 +3,7 @@ export default function Select({ selectedValue, options, onChange, style, bgColo
     <option
       key={number}
       value={number}
-      defaultValue={selectedValue}
+      selected={number === selectedValue}
     >
       {number}
     </option>
@@ -13,7 +13,7 @@ export default function Select({ selectedValue, options, onChange, style, bgColo
     <option
       key={string}
       value={string.id}
-      defaultValue={selectedValue}
+      selected={string?.name === selectedValue}
     >
       {string.name || string}
     </option>

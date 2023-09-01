@@ -1,18 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import { MovementItem } from './'
 import { MdCheck, MdClose } from 'react-icons/md'
+
+import { MovementItem } from './'
 import { UnderlineEffect } from '@/src/components/ui'
+import { useProgram, useMovements } from '@/store'
 
 type Props = {
-  program: Program
   maxDuration: number
-  movements: Movement[]
-  blockTypes: BlockType[]
+  programId: number
 }
 
-export default function Movements({ maxDuration, movements, blockTypes, program }: Props) {
+export default function Movements({ maxDuration, programId }: Props) {
+  const [updateMovements] = useProgram(state => [state.updateMovements])
+  const [movements] = useMovements(state => [state.movements])
+
   const [currentMovements, setCurrentMovements] = useState<Movement[]>(movements)
   const [showHint, setShowHint] = useState(false)
 
@@ -24,6 +27,8 @@ export default function Movements({ maxDuration, movements, blockTypes, program 
     if (action === 'ADD') {
       setCurrentMovements([...currentMovements, movement])
     }
+
+    updateMovements(movement.id as number, action)
   }
 
   const movementsContainers = (
@@ -70,9 +75,8 @@ export default function Movements({ maxDuration, movements, blockTypes, program 
       {currentMovements.map(movement => (
         <MovementItem
           key={movement.id}
-          program={program}
+          programId={programId}
           movement={movement}
-          blockTypes={blockTypes}
           maxDuration={maxDuration}
         />
       ))}

@@ -1,37 +1,31 @@
 'use client'
 import { useEffect } from 'react'
 import { Movements, DaysTable } from '.'
-// import { useProgram } from '@/src/context/ProgramContext'
-import { useProgram } from '@/src/store/program'
+import { useProgram, useMovements } from '@/store'
 
 type Props = {
   program: Program
-  blockTypes: BlockType[]
-  movements: Movement[]
   blocks: Block[]
   exercises: Exercise[]
 }
 
-export default function ProgramPanel({ program, blockTypes, movements, blocks, exercises }: Props) {
-  const [addProgram, addBlocks] = useProgram(state => [state.addProgram, state.addBlocks])
+export default function ProgramPanel({ program, blocks, exercises }: Props) {
+  const [initProgram, initBlocks, initMovements] = useProgram(state => [state.initProgram, state.initBlocks, state.initMovements])
+  const [movements] = useMovements(state => [state.movements])
 
   useEffect(() => {
-    addProgram(program)
-    addBlocks(blocks)
-  }, [addProgram, addBlocks, program, blocks])
+    initProgram(program)
+    initBlocks(blocks)
+    initMovements(movements)
+  }, [initProgram, initBlocks, initMovements, program, blocks, movements])
 
   return (
     <>
       <Movements
         maxDuration={program.duration}
-        program={program}
-        blockTypes={blockTypes}
-        movements={movements}
+        programId={program.id as number}
       />
-      <DaysTable
-        movements={movements}
-        exercises={exercises}
-      />
+      <DaysTable exercises={exercises} />
     </>
   )
 }
