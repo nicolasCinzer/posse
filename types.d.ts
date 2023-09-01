@@ -1,26 +1,22 @@
 type BlockType = {
-  id: number
+  id?: number
   name: string
 }
 
-type BlockTypeState = BlockType & {
-  currentDuration: number
-}
-
 type Movement = {
-  id: number
+  id?: number
   name: string
 }
 
 type Program = {
-  id: number
+  id?: number
   name: string
   duration: number
   workDaysNumber: number
 }
 
 type Block = {
-  id: number
+  id?: number
   programId: number
   typeId: number
   movementId: number
@@ -30,14 +26,14 @@ type Block = {
 type ExerciseType = 'Basic' | 'Variant' | 'Accessory' | null
 
 type Exercise = {
-  id: number
+  id?: number
   movementId: number
   name: string
   type: ExerciseType
 }
 
 type PRs = {
-  id: number
+  id?: number
   exerciseId: number
   series: number
   weight: number
@@ -47,14 +43,14 @@ type PRs = {
 }
 
 type RutineDay = {
-  id: number
-  blockId: number
+  id?: number
+  programId: number
   week: number
   day: number
 }
 
 type RutineDayExercise = {
-  id: number
+  id?: number
   rutineDayId: number
   exerciseId: number
   series: number
