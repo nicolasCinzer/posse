@@ -1,8 +1,8 @@
 type Props = {
-  name?: string
+  name: string
 }
 
-export default async function getPrograms(params: Props) {
+export default async function getPrograms(params?: Props) {
   const searchParams = new URLSearchParams(params)
 
   const response = await fetch('http://localhost:3000/api/programs?' + searchParams, {
